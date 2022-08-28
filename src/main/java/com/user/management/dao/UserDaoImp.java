@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.UUID;
 
 @Repository
 @Transactional
@@ -15,7 +16,11 @@ public class UserDaoImp implements UserDao{
     private EntityManager entityManager;
 
     @Override
-    public User create() {
-        return null;
+    public User create(User user) {
+        UUID uuid = UUID.randomUUID();
+        String uuidAsString = uuid.toString();
+        user.setToken(uuidAsString);
+        entityManager.merge(user);
+        return user;
     }
 }
