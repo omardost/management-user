@@ -1,0 +1,45 @@
+# management-user
+
+Minimal [Spring Boot](http://projects.spring.io/spring-boot/) sample app.
+
+:spring_version: current
+:toc:
+:icons: font
+:source-highlighter: prettify
+:project_id: gs-testing-restdocs
+
+This guide walks you through the process of generating documentation for the HTTP
+endpoints in a Spring application.
+
+
+[[scratch]]
+== Starting with Spring Initializr
+
+You can use this https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=testing-restdocs&name=testing-restdocs&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.testing-restdocs&dependencies=web[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
+
+To manually initialize the project:
+
+NOTE: If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
+
+NOTE: You can also fork the project from Github and open it in your IDE or other editor.
+
+== Run the Application
+
+`@SpringBootApplication` is a convenience annotation that adds all of the following:
+
+- `@Configuration`: Tags the class as a source of bean definitions for the application
+  context.
+- `@EnableAutoConfiguration`: Tells Spring Boot to start adding beans based on classpath
+  settings, other beans, and various property settings.
+- `@EnableWebMvc`: Flags the application as a web application and activates key behaviors,
+  such as setting up a `DispatcherServlet`. Spring Boot adds it  automatically when it sees
+  `spring-webmvc` on the classpath.
+
+The `main()` method uses Spring Boot's `SpringApplication.run()` method to launch an
+application. Did you notice that there is not a single line of XML? There is no `web.xml`
+file, either. This web application is 100% pure Java and you did not have to deal with
+configuring any plumbing or infrastructure. Spring Boot handles all of that for you.
+
+Logging output is displayed. The service should be up and running within a few seconds.
+
+
