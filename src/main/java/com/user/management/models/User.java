@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Date;
 
 @Entity
@@ -13,13 +14,11 @@ public class User {
     @Id
     @Getter @Setter @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@GeneratedValue(strategy = GenerationType.UUID)
-    //@GenericGenerator(name = "uuid", strategy = "uuid2")
-    //@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private Long id;
     @Getter @Setter @Column(name = "name")
     private String name;
     @Getter @Setter @Column(name = "email",unique=true)
+    @Email
     private String email;
     @Getter @Setter @Column(name = "password")
     private String password;
@@ -32,8 +31,9 @@ public class User {
     @Getter @Setter
     @Transient
     private Date last_login;
+    @Getter @Setter
     @Transient
-    private boolean isactive;
+    private Boolean isActive;
     @Getter @Setter @Column(name = "token")
     private String token;
 

@@ -19,7 +19,7 @@ public class DatabaseInitializer {
             public void run(String... args) throws Exception {
                 jdbcTemplate.execute("DROP TABLE T_USER IF EXISTS");
                 jdbcTemplate.execute("Create table T_USER (id int primary key auto_increment, name varchar(100), " +
-                        "email varchar(100), password varchar(100), token varchar(100))");
+                        "email varchar(100) UNIQUE, password varchar(100), token varchar(100))");
 //                jdbcTemplate.execute("Create table T_USER (id varchar(100) primary key, name varchar(100), " +
 //                        "email varchar(100), password varchar(100))");
             }
